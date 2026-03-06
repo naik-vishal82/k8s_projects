@@ -1,0 +1,10 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mypod
+spec:
+  containers:
+    - name: con1
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo Hello-devops_engineer; sleep 5 ; done"]
+  restartPolicy: Never
