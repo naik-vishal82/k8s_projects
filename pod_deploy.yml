@@ -1,11 +1,12 @@
-kind: ReplicationController
-apiVersion: v1
+kind: Deployment
+apiVersion: app/v1
 metadata:
   name: myreplica
 spec:
   replicas: 5            
-  selector:        
-    myname: vishal                             
+  selector:
+    matchLabels:
+      name: vishal                             
   template:                
     metadata:
       name: deploypod
