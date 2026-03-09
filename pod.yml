@@ -6,5 +6,10 @@ spec:
   containers:
     - name: con1
       image: ubuntu
-      command: ["/bin/bash", "-c", "while true; do echo Hello-devops_engineer; sleep 5 ; done"]
-  restartPolicy: Never
+      command: ["/bin/bash", "-c", "while true; do echo Hello Ubunut; sleep 5 ; done"]
+
+    - name: con2
+      image: httpd
+      ports:
+        - containerPort: 80
+  
