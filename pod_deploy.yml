@@ -2,8 +2,10 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: deployment
+  annotations:
+    kubernetes.io/change-cause: "My Comment"
 spec:
-  replicas: 5            
+  replicas: 2 
   selector:
     matchLabels:
       name: vishal                             
@@ -14,6 +16,6 @@ spec:
         name: vishal
     spec:
      containers:
-       - name: c1
+       - name: c2
          image: ubuntu
-         command: ["/bin/bash", "-c", "while true; do echo Hello-Vishal; sleep 5 ; done"]
+         command: ["/bin/bash", "-c", "while true; do echo Hello, Welcome; sleep 5 ; done"]
