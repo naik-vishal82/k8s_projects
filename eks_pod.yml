@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eks-web
+  labels:
+     app: beachweb
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: beachweb
+
+  template:
+    metadata:
+      labels:
+        app: beachweb
+    spec:
+      containers:
+      - name: beachweb
+        image: vishumana/dockerproject:beach
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eks-service
+  labels:
+    app: beachweb
+spec:
+  selector:
+    app: beachweb
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer
+
